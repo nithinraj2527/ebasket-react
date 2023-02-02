@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useState } from "react";
-import { LoginModal } from "../Login";
+import { LoginModal } from "./Login";
 
 export function Header(props) {
   const [show, setShow] = useState(false);
@@ -20,10 +20,10 @@ export function Header(props) {
   };
   return (
     <>
-      <Navbar className="head" expand="lg">
+      <Navbar className="head-container row" expand="lg">
         <Container>
-          <div>
-            <span className="badge">
+          <div className=" col-2" style={{ marginLeft: "30px" }}>
+            <span className="Logo">
               <a href="https://www.flipkart.com/plus">
                 {" "}
                 <img
@@ -38,13 +38,12 @@ export function Header(props) {
               <span className="exploretext"> Plus+</span>
             </div>
           </div>
-          <div>
+          <div className="col-3">
             <InputGroup className="mb-3" style={{ marginTop: "10px" }}>
               <Form.Control
                 placeholder="Search for Products"
                 aria-label="Search"
                 aria-describedby="basic-addon2"
-                className="productsearch"
                 onChange={searchProduct}
               />
               <Button
@@ -56,59 +55,67 @@ export function Header(props) {
               </Button>
             </InputGroup>
           </div>
-          <Button variant="outline-dark" className="text" onClick={handleShow}>
-            Login
-          </Button>
-          <LoginModal
-            show={show}
-            handleShow={handleShow}
-            handleClose={handleClose}
-          />
-          <Navbar.Brand style={{ margin: "30px" }} href="#home">
-            Become a seller
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <NavDropdown
-                title="More"
-                className="text"
-                id="basic-nav-dropdown"
-              >
-                <NavDropdown.Item href="#action/3.1">
-                  Notification Preference
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  24*7 Customer Support
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Product Card
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Download App
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-          <Nav.Link href="#link">
-            <a
-              href="https://www.flipkart.com/viewcart?exploreMode=true&preference=FLIPKART"
-              target="_blank"
-              rel="noreferrer"
+          <div className=" col-2">
+            <Button
+              variant="outline-dark"
+              className="text"
+              onClick={handleShow}
             >
-              {" "}
-              <button type="button" className="btn btn-outline-dark">
-                <img
-                  src="https://cdn.vectorstock.com/i/1000x1000/62/87/flat-design-shopping-cart-vector-13576287.webp"
-                  alt=""
-                  height="35px"
-                  width="25px"
-                />
-                Cart
-              </button>
-            </a>
-          </Nav.Link>
+              My Account
+            </Button>
+          </div>
+          <div className="col-1">
+            <LoginModal
+              show={show}
+              handleShow={handleShow}
+              handleClose={handleClose}
+            />
+          </div>
+          <div className=" col-1 text">
+            <Nav.Link>Become a Seller</Nav.Link>
+          </div>
+          <div className=" col-1">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto text">
+                <NavDropdown title="More" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">
+                    Notification Preference
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    24*7 Customer Support
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Product Card
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.4">
+                    Download App
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </div>
+          <div className=" col-3 ">
+            <Nav.Link href="#link">
+              <a
+                href="https://www.flipkart.com/viewcart?exploreMode=true&preference=FLIPKART"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+                <button type="button" className="btn btn-outline-dark">
+                  <img
+                    src="https://cdn.vectorstock.com/i/1000x1000/62/87/flat-design-shopping-cart-vector-13576287.webp"
+                    alt=""
+                    height="35px"
+                    width="25px"
+                  />
+                  Cart
+                </button>
+              </a>
+            </Nav.Link>
+          </div>
         </Container>
       </Navbar>
     </>

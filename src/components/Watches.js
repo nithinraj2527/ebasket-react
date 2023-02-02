@@ -1,6 +1,6 @@
-import { ProductTemplate } from "./ProductTemplate";
+import { WatchesTemplate } from "./ProductTemplate";
 
-export function ProductWrapper(props) {
+export function Watches(props) {
   const products = [
     {
       title: "1Emporio Armani",
@@ -143,7 +143,7 @@ export function ProductWrapper(props) {
     <>
       <div class="conatainer d-flex flex-wrap" id="productsContainer">
         {filtered.map((product) => {
-          return <ProductTemplate prod={product} />;
+          return <WatchesTemplate prod={product} />;
         })}
       </div>
     </>

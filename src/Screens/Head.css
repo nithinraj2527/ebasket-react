@@ -1,0 +1,5 @@
+.carousal-obj{
+    width: 80%;
+    
+    object-fit: contain;
+}
